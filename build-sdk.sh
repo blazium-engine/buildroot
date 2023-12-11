@@ -4,7 +4,7 @@ set -e
 function usage() {
   echo "usage: $0 host target"
   echo "  where host is one of linux-x86_64"
-  echo "  where target is one of i686, x86_64, armv7"
+  echo "  where target is one of i686, x86_64, armv7, aarch64"
   exit 1
 }
 
@@ -59,7 +59,7 @@ fi
 
 function build_linux_sdk() {
   ${container} build -f Dockerfile.linux-builder -t godot-buildroot-builder-linux
-  ${container} run -it --rm -v $(pwd):/tmp/buildroot:z -w /tmp/buildroot -e FORCE_UNSAFE_CONFIGURE=1 --userns=keep-id godot-buildroot-builder-linux bash -c "make syncconfig; make clean sdk"
+  ${container} run -it --rm -v $(pwd):/tmp/buildroot:z -w /tmp/buildroot -e FORCE_UNSAFE_CONFIGURE=1 --userns=keep-id godot-buildroot-builder-linux bash -c "make clean; make syncconfig; make sdk"
 
   mkdir -p godot-toolchains
 
@@ -76,6 +76,8 @@ function build_linux_sdk() {
   popd
 }
 
+build_linux_sdk
+
 echo
 echo "***************************************"
-echo "Build succesful your toolchain is in ehe godot-toolchains directory"
+echo "Build succesful your toolchain is in the godot-toolchains directory"
