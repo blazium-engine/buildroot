@@ -23,16 +23,14 @@ The first part of an SDK filename referes to the architecture that this SDK will
 
 Unpack the toolchain anywhere you like and run the `relocate-sdk.sh` script within. This needs to happen every time you move the toolchain to a different directory, but only needs to happen once after installation.
 
-After this you can build the engine more-or-less like normal. For instance for `x86_64`:
+After this you can build the engine more-or-less like normal. For instance:
 
-`scons p=x11 target=release_debug CC=/home/hp/tmp/x86_64-godot-linux-gnu_sdk-buildroot/bin/x86_64-godot-linux-gnu-gcc CXX=/home/hp/tmp/x86_64-godot-linux-gnu_sdk-buildroot/bin/x86_64-godot-linux-gnu-g++ -j64`
+```
+export PATH=/path/to/sdk/bin:$PATH 
+scons -j16
+```
 
-And for 32-bit Intel:
-
-`scons p=x11 target=release_debug CC=/home/hp/tmp/i686-godot-linux-gnu_sdk-buildroot/bin/i686-godot-linux-gnu-gcc CXX=/home/hp/tmp/i686-godot-linux-gnu_sdk-buildroot/bin/i686-godot-linux-gnu-g++ -j64 use_static_cpp=yes bits=32`
-*Note the `bits=32` at the end!*
-
-For other build-time options please see https://docs.godotengine.org/en/stable/development/compiling/compiling_for_x11.html
+For other build-time options please see https://docs.godotengine.org/en/stable/contributing/development/compiling/compiling_for_linuxbsd.html
 
 # Obtaining an SDK
 
