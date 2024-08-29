@@ -10,9 +10,9 @@ fi
 arch=$1
 bits=$2
 
-bin_to_keep="aclocal autoconf autoheader automake autoreconf cmake gawk libtool m4 meson ninja pkgconf pkg-config python python3.11 scons tar toolchain-wrapper"
+bin_to_keep="aclocal autom4te autoconf autoheader automake autoreconf cmake gawk libtool m4 meson ninja pkgconf pkg-config python python3.11 scons tar toolchain-wrapper"
 lib_to_keep="cmake gcc libpkgconf libpython3.11 libz libisl libmpc libmpfr libgmp libffi python3.11 pkgconfig libm libmvec"
-share_to_keep="aclocal autoconf buildroot cmake gcc libtool pkgconfig"
+share_to_keep="aclocal autoconf automake-1.16 autoconf-archive buildroot cmake gcc gettext-tiny libtool pkgconfig"
 sysroot_share_to_keep="aclocal pkgconfig"
 
 function clean_directory() {
