@@ -19,7 +19,8 @@
 # - Diff sysusers.d with the previous version
 # - Diff factory/etc/nsswitch.conf with the previous version
 #   (details are often sprinkled around in README and manpages)
-SYSTEMD_VERSION = 254.5
+SYSTEMD_VERSION = 255.10
+SYSTEMD_SOURCE = systemd-stable-$(SYSTEMD_VERSION).tar.gz
 SYSTEMD_SITE = $(call github,systemd,systemd-stable,v$(SYSTEMD_VERSION))
 SYSTEMD_LICENSE = \
 	LGPL-2.1+, \
